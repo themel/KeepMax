@@ -15,8 +15,12 @@ library(KeepMax)
 vec <- rnorm(2e6)
 
 # all in one vector
-top20k.r <- function(vec) { vec[order(vec) > (length(vec) - 20000)] }
-top20k.km <- function(vec) { km <- new(KeepMax, 20000); km$addMany(vec); km$vector }
+top20k.r <- function(vec) vec[order(vec) > (length(vec) - 20000)] 
+top20k.km <- function(vec) { 
+	km <- new(KeepMax, 20000); 
+	km$addMany(vec); 
+	km$vector 
+}
 
 
 # adding one by one
@@ -34,8 +38,15 @@ top20k.r.one <- function(vec) {
 	keep
 }
 
-top20k.km.one <- function(vec) { km <- new(KeepMax, 20000); for(i in seq_along(vec)) { km$addOne(vec[i]) } ;  km$vector }
+top20k.km.one <- function(vec) { 
+	km <- new(KeepMax, 20000); 
 
+	for(i in seq_along(vec)) { 
+		km$addOne(vec[i]) 
+	} 
+
+	km$vector 
+}
 
 ````
 
