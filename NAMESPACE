@@ -1,0 +1,3 @@
+useDynLib(KeepMax)
+exportPattern("^[[:alpha:]]+")
+import( Rcpp )

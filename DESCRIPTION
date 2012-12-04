@@ -1,0 +1,12 @@
+Package: KeepMax
+Type: Package
+Title: An R object that keeps the highest n numerics added to it
+Version: 1.0
+Date: 2012-12-03
+Author: Thomas Themel <thomas.themel@mirai-solutions.ch>
+Maintainer: Who to complain to <thomas.themel@mirai-solutions.ch>
+Description: An experiment in Rcpp
+License: Proprietary
+Depends: methods, Rcpp (>= 0.10.1)
+LinkingTo: Rcpp
+RcppModules: KeepMax
