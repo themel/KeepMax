@@ -41,8 +41,11 @@ top20k.r.one <- function(vec) {
 top20k.km.one <- function(vec) { 
 	km <- new(KeepMax, 20000); 
 
+	# 10x performance improvement
+	func <- km$addOne
+
 	for(i in seq_along(vec)) { 
-		km$addOne(vec[i]) 
+		func(vec[i]) 
 	} 
 
 	km$vector 
@@ -73,7 +76,7 @@ Unit: milliseconds
 benchmark(top20k.r.one(vec), top20k.km.one(vec), times=10)
 Unit: seconds
                 expr      min       lq   median       uq      max
-1 top20k.km.one(vec) 44.18668 44.26540 44.27072 44.31589 44.41096
+1 top20k.km.one(vec)  4.76322 4.794606 4.804996 4.812961 4.827485
 2  top20k.r.one(vec) 86.87602 86.91814 86.92890 86.97854 87.17521
 ```
 
